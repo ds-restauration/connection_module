@@ -1,5 +1,5 @@
 {
-  "name": "connection_module",
+  "name": "@ds-restauration/connection_module",
   "version": "1.0.0",
   "description": "A collection of connection utilities",
   "main": "index.js",
