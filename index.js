@@ -1,5 +1,5 @@
 /**
- * sftpCmd wraps the ssh sftp command as a child process, executing supplied sequence of commands
+ * sftpBatchSync wraps the ssh sftp command as a child process, executing supplied sequence of commands
  * in a batch.
  * 
  * Recommended practice is to enable the account to ssh via key installed in the ~/.ssh directory,
@@ -34,7 +34,8 @@ sshArgs = sshArgs || '-b -';
 function sftpBatchSync(args={}, batch=[]) {
 
   // insert any supplied ssh options before config/defaults to allow override.
-  args.sshOptions = [ ...[], ...args.sshOptions, ...sshOptions ];
+  args.sshOptions = args.sshOptions || [];
+  args.sshOptions = [ ...args.sshOptions, ...sshOptions ];
   
   if (!args.user) {
     throw { name: 'AUTH', message: `Missing user.`}
@@ -45,7 +46,7 @@ function sftpBatchSync(args={}, batch=[]) {
   }
 
   // insert any supplied ssh args after config/defaults.  Override is not possible.
-  argString = `${sshArgs} ${args.sshArgs} `;
+  var argString = `${sshArgs} ${args.sshArgs} `;
 
   // append the ssh options to the arg string
   args.sshOptions.forEach((opt) => {
