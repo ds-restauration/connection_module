@@ -35,6 +35,7 @@ function sftpBatchSync(args={}, batch=[]) {
 
   // insert any supplied ssh options before config/defaults to allow override.
   args.sshOptions = args.sshOptions || [];
+  args.sshArgs = args.sshArgs || '';
   args.sshOptions = [ ...args.sshOptions, ...sshOptions ];
   
   if (!args.user) {
