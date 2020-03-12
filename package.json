@@ -12,6 +12,10 @@
   },
   "author": "hercemer42",
   "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "yaml": "^1.8.0"
+  },
   "bugs": {
     "url": "https://github.com/ds-restauration/connection_module/issues"
   },

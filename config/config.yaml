@@ -1,0 +1,7 @@
+sshOptions:
+  - ServerAliveInterval=2
+  - ServerAliveCountMax=2
+  - ConnectionAttempts=1
+  - ConnectTimeout=15
+
+sshArgs: -b -
